@@ -4,7 +4,7 @@ public class MainScene extends Scene{
   MainScene(){}
 
   public void setup(){
-    player.position.x = 0;//GBSize.x/2 - 8;
+    player.position.x = 0;
     player.position.y = int(GBSize.y-48);
 
     //SUELO
