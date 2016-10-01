@@ -7,7 +7,7 @@ float gameScale = 2;
 
 boolean debugColliders = true;
 
-//KEYS
+//KEYSsdhncsiosdkcsdol
 Keyboard.Key keftKey = keyboard.newKey(LEFT);
 Keyboard.Key rightKey = keyboard.newKey(RIGHT);
 Keyboard.Key upKey = keyboard.newKey(UP);
