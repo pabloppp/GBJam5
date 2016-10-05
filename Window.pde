@@ -88,6 +88,5 @@ public class Window{
   public void shake(int duration, int strength){
     shakeTimeLeft = duration;
     shakeStrength = strength;
-  }
 
-}
+  }}}
