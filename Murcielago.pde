@@ -1,35 +1,46 @@
-public class Enemy{
+public class Murcielago extends Enemy{
 
-  public PVector position;
+  public PVector currentposition;
   public PVector accel;
   public PVector size;
+  public PVector initialposition;//
   float speed;
 
-  public Enemy (int pX, int pY, int sX, int sY){
-    position.x = pX;
-    position.y = pY;
-    size = new PVector(16, 16);
-    smooth();
+  public Murcielago (int pX, int pY, int sX, int sY){
+    initialposition= new PVector(pX,pY);
+    currentposition= new PVector(pX,pY);
+    size= new PVector(sX,sY);
+    
+   
   }
 
-    void move(){
-      position.x+=speed;
-      position.y+=speed;
+    void physics(){
+      speed=1;
+      float dX=speed;
+      //float dY;
+      
+      
+      //position.y+=dY;
+      currentposition.x+=dX;
+      if(abs(currentposition.x-initialposition.x)>6){
+        dX=-speed; }
     }
-
-
-
-
-    void draw(){
+    
+      
+      
+      
+      
+      
+      
+      void draw(){
      //recuerda que esto es el main
       fill(#AEC440);                   //dibujando mi enemiguito
-      rect(position.x, position.y, 16, 16);
-      move();
-      bounce();
-    }
-    void bounce(){       // se mueve de un lado a otro
-      if ((position.x> width) || (position.x < 0)){
-        speed = speed * -1;
-      }
-    }
+      rect(currentposition.x,currentposition.y, 16, 16);
+ 
+    } 
 }
+
+
+   
+   
+    

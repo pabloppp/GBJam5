@@ -2,15 +2,17 @@
 
 
 public class MainScene extends Scene{
-
+Murcielago bat= new Murcielago(40,0,8,8);
   MainScene(){
     this.addSpriteSheet("wall", "sprites/pared.png", 16, 16);
+    
   }
 
   public void setup(){
     this.whipeAll();
     player.position.x = 0;
     player.position.y = int(GBSize.y-48);
+    
 
     //SUELO
     //colliders.add(new Collider(0, int(GBSize.y-32), 40, 2));
@@ -47,6 +49,9 @@ public class MainScene extends Scene{
     for(Collider c : colliders){
       c.draw();
     }
+    bat.physics();
+    bat.draw();
+    
   }
 
   public void drawGUI(){
