@@ -4,13 +4,15 @@
 public class MainScene extends Scene{
 
   int sceneWidth = int(GBSize.x*3);
-
+  Murcielago bat= new Murcielago(72,0,8,8);
   MainScene(){
     this.addSpriteSheet("wall", "sprites/pared.png", 16, 16);
+
   }
 
   public void setup(){
     this.whipeAll();
+
     //player.position.x = 0;
     //player.position.y = int(GBSize.y-48)-4;
 
@@ -33,7 +35,7 @@ public class MainScene extends Scene{
         }
       }
     }
-    
+
     //limites
     colliders.add(new Collider(-8, -144, 1, 36));
     colliders.add(new Collider(sceneWidth, -144, 1, 36));
@@ -51,6 +53,9 @@ public class MainScene extends Scene{
     for(Collider c : colliders){
       c.draw();
     }
+    bat.physics();
+    bat.draw();
+
   }
 
   public void drawGUI(){
