@@ -89,4 +89,5 @@ public class Window{
     shakeTimeLeft = duration;
     shakeStrength = strength;
 
-  }}}
+  }
+}
