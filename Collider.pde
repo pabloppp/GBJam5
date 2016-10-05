@@ -33,7 +33,7 @@ public class Collider{
     tags.add(s);
   }
 
-  void hasTag(String s){
+  boolean hasTag(String s){
     for(String tag : tags){
       if(tag.equals(s)) return true;
     }
