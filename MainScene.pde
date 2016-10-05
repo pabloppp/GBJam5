@@ -2,7 +2,7 @@
 
 
 public class MainScene extends Scene{
-Murcielago bat= new Murcielago(40,0,8,8);
+Murcielago bat= new Murcielago(72,0,8,8);
   MainScene(){
     this.addSpriteSheet("wall", "sprites/pared.png", 16, 16);
     

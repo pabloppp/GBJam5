@@ -5,6 +5,7 @@ public class Murcielago extends Enemy{
   public PVector size;
   public PVector initialposition;//
   float speed;
+  float dX=1;
 
   public Murcielago (int pX, int pY, int sX, int sY){
     initialposition= new PVector(pX,pY);
@@ -15,18 +16,18 @@ public class Murcielago extends Enemy{
   }
 
     void physics(){
-      speed=1;
-      float dX=speed;
+     
+      
       //float dY;
       
       
       //position.y+=dY;
       currentposition.x+=dX;
-      if(abs(currentposition.x-initialposition.x)>6){
-        dX=-speed; }
+      if (abs(currentposition.x-initialposition.x)>160){
+        dX*=-1;
+      }
     }
     
-      
       
       
       
@@ -39,6 +40,7 @@ public class Murcielago extends Enemy{
  
     } 
 }
+
 
 
    
