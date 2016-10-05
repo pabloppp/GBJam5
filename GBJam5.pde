@@ -5,7 +5,7 @@ Window window = new Window((int)GBSize.x, (int)GBSize.y);
 
 float gameScale = 2;
 
-boolean debugColliders = true;
+boolean debugColliders = false;
 
 //KEYSsdhncsiosdkcsdol
 Keyboard.Key keftKey = keyboard.newKey(LEFT);
@@ -24,6 +24,7 @@ Player player;
 void setup(){
 
   noStroke();
+  noSmooth();
   frameRate(60);
 
   gbClassic = createFont("fonts/gb.ttf", 8);
@@ -92,7 +93,7 @@ void setup(){
 }
 
 void draw(){
-  background(#D7E894);
+  background(#204631); //#D7E894);
   scale(gameScale, gameScale);
 
   //WORLD

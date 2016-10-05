@@ -1,32 +1,45 @@
 
+
+
 public class MainScene extends Scene{
 
-  MainScene(){}
+  MainScene(){
+    this.addSpriteSheet("wall", "sprites/pared.png", 16, 16);
+  }
 
   public void setup(){
+    this.whipeAll();
     player.position.x = 0;
     player.position.y = int(GBSize.y-48);
 
     //SUELO
-    colliders.add(new Collider(0, int(GBSize.y-32), 40, 2));
+    //colliders.add(new Collider(0, int(GBSize.y-32), 40, 2));
+    for(int i=0; i<20;i++){
+      Sprite s = this.addSprite(i*16, int(GBSize.y-32), "wall");
+      s.setCollider(2, 2, 0, 0);
 
-    colliders.add(new Collider(0, 70, 10, 1));
+      for(int j=0; j<i-10; j++){
+        Sprite s2 = this.addSprite(i*16, int(GBSize.y-32-16*j), "wall");
+        s2.setCollider(2, 2, 0, 0);
+      }
 
-    colliders.add(new Collider(50, int(GBSize.y-48), 2, 2));
-    colliders.add(new Collider(50+16, int(GBSize.y-48), 2, 2));
-    colliders.add(new Collider(50+32, int(GBSize.y-48), 2, 2));
-    colliders.add(new Collider(50+48, int(GBSize.y-48), 2, 2));
-    colliders.add(new Collider(50+64, int(GBSize.y-48-8), 2, 2));
-    colliders.add(new Collider(50+80, int(GBSize.y-48-16), 2, 2));
-    colliders.add(new Collider(50+96, int(GBSize.y-48-24), 2, 2));
+    }
 
-    colliders.add(new Collider(-8, 0, 1, 18));
+    for(int i=0; i<6;i++){
+      Sprite s = this.addSprite(i*16, int(GBSize.y-80), "wall");
+      s.setCollider(2, 2, 0, 0);
+    }
+
+    //limites
+    colliders.add(new Collider(-8, -144, 1, 36));
+    colliders.add(new Collider(int(GBSize.x*2), -144, 1, 36));
   }
 
   public void draw(){
 
-    fill(#527F39);
-    rect(32, 16, 16, 16);
+    for(Sprite s : sprites){
+      s.draw();
+    }
 
     player.draw();
     translate();
@@ -37,12 +50,13 @@ public class MainScene extends Scene{
   }
 
   public void drawGUI(){
-    fill(#527F39);
-    rect(0, 16, 16, 16);
+    fill(#AEC440);//#D7E894);
+    rect(0, int(GBSize.y-16), 16*10, 16);
   }
 
   void translate(){
     this.camera.x = constrain(player.position.x - GBSize.x/2 + 8, 0, 160);
+    this.camera.y = constrain(player.position.y - GBSize.y/2 + 8, -144, 0);
     //this.camera.y = player.position.y;
   }
 
