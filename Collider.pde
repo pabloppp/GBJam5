@@ -6,6 +6,7 @@ public class Collider{
   PVector position;
   PVector size;
   boolean traversable;
+  ArrayList<String> tags = new ArrayList<String>();
 
   public Collider(int pX, int pY, int sX, int sY){
     position = new PVector(pX, pY);
@@ -26,6 +27,17 @@ public class Collider{
   boolean isColliding(int pX, int pY, int sX, int sY){
     Rectangle r1 = new Rectangle(pX, pY, sX, sY);
     return r1.intersects(new Rectangle(int(position.x), int(position.y), int(size.x*8), int(size.y*8)));
+  }
+
+  void addTag(String s){
+    tags.add(s);
+  }
+
+  void hasTag(String s){
+    for(String tag : tags){
+      if(tag.equals(s)) return true;
+    }
+    return false;
   }
 
   int[] relativePosition(int pX, int pY, int sX, int sY){

@@ -89,4 +89,9 @@ public class Player{
     accel.x = direction*2;
   }
 
+  boolean isColliding(int pX, int pY, int sX, int sY){
+    Rectangle r1 = new Rectangle(pX, pY, sX, sY);
+    return r1.intersects(new Rectangle(int(position.x), int(position.y), int(size.x*8), int(size.y*8)));
+  }
+
 }
